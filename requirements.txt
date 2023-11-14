@@ -47,3 +47,4 @@ Pillow==9.5.0
 python-dotenv== 0.21.1
 numpy
 joblib
+opencv-python
