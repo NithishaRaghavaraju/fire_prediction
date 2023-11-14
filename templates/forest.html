@@ -69,7 +69,7 @@
   gap: 4%;
 }
 
-.instructions img {
+.upload_garbage {
   width: 25%;
   max-width: 60%;
 }
@@ -90,10 +90,6 @@
 .input{
   position: relative;
   display: inline-block;
-}
-.upload{
-  width:"25%";
-  height:"70%";
 }
 
 .LoadingImage{
@@ -197,21 +193,22 @@
         <!-- <img class="after-image-upload" src="../static/images/upload_image.jpg" alt="Uploaded" /> -->
         <div class='instructions'>
           
-          <img src='../static/images/upload_image.jpg' id="upload_Image" name="Garbage_image" alt='Icon' class='upload'/>
+          <img src="/static/images/upload_image.jpg" id="upload_Image" name="Garbage_image" alt='upload_Image' class='upload upload_garbage'/>
           <h1 class="description" style="color: #3498DB">Drop your image here</h1>
           <p class='description' style="color:#9DB2BF">Supports : JPG, JPEG2000, PNG</p>
         </div>
       </div>
 
       <div class="input">
-        <input type="file" name="image" id="image-uploader" accept="image/*" />
+        <input type="file" name="image" id="image-uploader" accept="image/*" style="display: none;" />
         <!-- <div class='LoadingImage'><img src='../static/images/loading.gif' alt='loadingIcon' class='Loading'/></div> -->
       </div>
+      <h2 class="predict" style="color: #82AAE3;"></h2>
     </div>
    
-    <button class="rbtn preview">Reupload</button>
+    <button class="rbtn preview button-hidden">Reupload</button>
 
-    <p class="predict"></p>
+  
   </div>
   <script>
     const input = document.querySelector('input');
@@ -240,8 +237,10 @@ function showReuploadButton() {
   const reuploadButton = document.querySelector('.rbtn');
   reuploadButton.style.display = 'block';
 }
-// Add an event listener to the file input element to handle when the user selects an image.
+// Add an event listener to the file input element to handle when the user selects anmage.
 fileInput.addEventListener('change', async function () {
+  const divElement = document.querySelector('.predict');
+  divElement.style.display = "none";
   // Get the selected image file.
   var file = this.files[0];
  
@@ -257,6 +256,8 @@ fileInput.addEventListener('change', async function () {
     const imageElement = document.querySelector('.upload');
     console.log(imageElement)
     imageElement.src = dataURL;
+    imageElement.classList.add('after-image-upload');
+    imageElement.classList.remove('upload_garbage');
 
   };
   reader.readAsDataURL(file);
@@ -277,8 +278,9 @@ fileInput.addEventListener('change', async function () {
         const Garbage = data;
         console.log( Garbage['predict']);
         const divElement = document.querySelector('.predict');
-        console.log(divElement)
+        divElement.style.display = "block";
         divElement.textContent = Garbage['predict'];
+        
   })
   
 });</script>

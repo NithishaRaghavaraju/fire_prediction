@@ -46,6 +46,6 @@ Werkzeug==1.0.1
 Pillow==9.5.0
 python-dotenv== 0.21.1
 numpy
-joblib
+jo
 opencv-python
 tensorflow

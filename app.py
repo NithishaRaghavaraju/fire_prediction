@@ -72,4 +72,4 @@ def update_image():
     output_data = interpreter.get_tensor(output_details[0]['index'])
     predicted_class = np.argmax(output_data)
     print(List[predicted_class])
-    return {"predict" : List[predicted_class]}
+    return {"predict" : f" The Garbage is {List[predicted_class]}"}
