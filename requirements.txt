@@ -4,6 +4,8 @@
 #
 #    pip-compile --output-file=-
 #
+Flask==2.2.3
+Flask-Cors==4.0.0
 boto3==1.16.51
     # via -r requirements.in
 botocore==1.19.63
