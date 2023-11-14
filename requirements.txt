@@ -9,3 +9,4 @@ pip===23.3.1
 numpy
 scikit-learn
 Pillow
+opencv-python
