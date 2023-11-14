@@ -48,3 +48,4 @@ python-dotenv== 0.21.1
 numpy
 joblib
 opencv-python
+tensorflow
